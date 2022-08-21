@@ -4,8 +4,10 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.betulantep.rickandmorty.data.entities.Character.Character
-import com.betulantep.rickandmorty.retrofit.AppRemoteDao
-import com.betulantep.rickandmorty.ui.character.CharacterPagingSource
+import com.betulantep.rickandmorty.data.entities.Character.CharacterResponse
+import com.betulantep.rickandmorty.data.repo.pagingsource.CharacterPagingSource
+import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
+import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -14,6 +16,10 @@ class AppRepositoryImpl @Inject constructor(var remoteDao: AppRemoteDao) : AppRe
     override suspend fun getCharacters(): Flow<PagingData<Character>> {
         return Pager(
             config = PagingConfig(42),
-            pagingSourceFactory = { CharacterPagingSource(remoteDao) }).flow
+            pagingSourceFactory = { CharacterPagingSource(remoteDao)}).flow
+    }
+
+    override suspend fun getCharactersNetworkResult(pageNumber: Int): CharacterResponse {
+        return remoteDao.getAllCharacters(pageNumber)
     }
 }

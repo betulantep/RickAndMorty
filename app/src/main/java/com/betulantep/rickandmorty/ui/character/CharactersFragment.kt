@@ -30,7 +30,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
         binding.rvCharacter.adapter = mAdapter
 
         lifecycleScope.launchWhenStarted {
-            viewModel.characterListState.collectLatest {
+            viewModel.characterList.collectLatest {
                 mAdapter.submitData(it)
             }
         }

@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.betulantep.rickandmorty.data.entities.Character.Character
 import com.betulantep.rickandmorty.databinding.CharacterRowLayoutBinding
+import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 
 class CharacterAdapter() :
-    PagingDataAdapter<Character, CharacterAdapter.CharacterViewHolder>(DiffUtilCallBack()) {
+    PagingDataAdapter<CharacterUIModel, CharacterAdapter.CharacterViewHolder>(DiffUtilCallBack()) {
     class CharacterViewHolder(var binding: CharacterRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -33,12 +34,12 @@ class CharacterAdapter() :
     }
 
 
-    class DiffUtilCallBack : DiffUtil.ItemCallback<Character>() {
-        override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
+    class DiffUtilCallBack : DiffUtil.ItemCallback<CharacterUIModel>() {
+        override fun areItemsTheSame(oldItem: CharacterUIModel, newItem: CharacterUIModel): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
+        override fun areContentsTheSame(oldItem: CharacterUIModel, newItem: CharacterUIModel): Boolean {
             return oldItem == newItem
         }
 

@@ -1,6 +1,6 @@
 package com.betulantep.rickandmorty.di
 
-import com.betulantep.rickandmorty.retrofit.AppRemoteDao
+import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import com.betulantep.rickandmorty.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -26,7 +26,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAppRemoteDao(retrofit: Retrofit) : AppRemoteDao{
+    fun provideAppRemoteDao(retrofit: Retrofit) : AppRemoteDao {
         return retrofit.create(AppRemoteDao::class.java)
     }
 }

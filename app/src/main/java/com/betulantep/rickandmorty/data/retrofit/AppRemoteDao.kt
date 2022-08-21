@@ -1,4 +1,4 @@
-package com.betulantep.rickandmorty.retrofit
+package com.betulantep.rickandmorty.data.retrofit
 
 import com.betulantep.rickandmorty.data.entities.Character.CharacterResponse
 import io.reactivex.Single
@@ -9,5 +9,5 @@ import retrofit2.http.Query
 interface AppRemoteDao {
 
     @GET("character")
-    suspend fun getAllCharacters(@Query("page") query:Int) : Response<CharacterResponse>
+    suspend fun getAllCharacters(@Query("page") query:Int) : CharacterResponse
 }
