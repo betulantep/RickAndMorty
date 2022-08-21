@@ -4,7 +4,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.betulantep.rickandmorty.data.entities.Character.toCharacterUIModel
-import com.betulantep.rickandmorty.data.repo.AppRepository
+import com.betulantep.rickandmorty.domain.repo.AppRepository
 import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 import com.betulantep.rickandmorty.utils.Constants.FIRST_PAGE_INDEX
 import com.betulantep.rickandmorty.utils.NetworkResult

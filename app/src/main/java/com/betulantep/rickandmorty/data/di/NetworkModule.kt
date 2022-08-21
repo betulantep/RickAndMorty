@@ -1,4 +1,4 @@
-package com.betulantep.rickandmorty.di
+package com.betulantep.rickandmorty.data.di
 
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import com.betulantep.rickandmorty.utils.Constants.BASE_URL

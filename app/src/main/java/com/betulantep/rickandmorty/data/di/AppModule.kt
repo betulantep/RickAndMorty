@@ -1,6 +1,6 @@
-package com.betulantep.rickandmorty.di
+package com.betulantep.rickandmorty.data.di
 
-import com.betulantep.rickandmorty.data.repo.AppRepository
+import com.betulantep.rickandmorty.domain.repo.AppRepository
 import com.betulantep.rickandmorty.data.repo.AppRepositoryImpl
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import dagger.Module

@@ -7,7 +7,7 @@ import com.betulantep.rickandmorty.data.entities.Character.Character
 import com.betulantep.rickandmorty.data.entities.Character.CharacterResponse
 import com.betulantep.rickandmorty.data.repo.pagingsource.CharacterPagingSource
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
-import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
+import com.betulantep.rickandmorty.domain.repo.AppRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

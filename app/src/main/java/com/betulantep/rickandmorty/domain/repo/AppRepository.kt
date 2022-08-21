@@ -1,4 +1,4 @@
-package com.betulantep.rickandmorty.data.repo
+package com.betulantep.rickandmorty.domain.repo
 
 import androidx.paging.PagingData
 import com.betulantep.rickandmorty.data.entities.Character.Character

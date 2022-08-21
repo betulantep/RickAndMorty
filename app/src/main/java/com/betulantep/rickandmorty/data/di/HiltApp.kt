@@ -1,4 +1,4 @@
-package com.betulantep.rickandmorty.di
+package com.betulantep.rickandmorty.data.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

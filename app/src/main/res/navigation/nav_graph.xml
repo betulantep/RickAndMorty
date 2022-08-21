@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/action_character"
-        android:name="com.betulantep.rickandmorty.ui.character.CharactersFragment"
+        android:name="com.betulantep.rickandmorty.presentation.character.CharactersFragment"
         android:label="fragment_characters"
         tools:layout="@layout/fragment_characters" />
 </navigation>
