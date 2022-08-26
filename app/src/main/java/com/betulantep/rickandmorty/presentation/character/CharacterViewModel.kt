@@ -37,6 +37,10 @@ class CharacterViewModel @Inject constructor(
         getCharacters()
     }
 
+   /* fun characterItemClick() :{
+
+    }*/
+
     private fun getCharacters() {
         job?.cancel()
         job = getCharacterUIModelUseCase.executeGetCharacters(viewModelScope)
