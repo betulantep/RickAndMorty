@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.filter
 import com.betulantep.rickandmorty.domain.repo.AppRepository
 import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 import com.betulantep.rickandmorty.domain.usecase.GetCharacterUIModelUseCase
@@ -37,9 +38,7 @@ class CharacterViewModel @Inject constructor(
         getCharacters()
     }
 
-   /* fun characterItemClick() :{
 
-    }*/
 
     private fun getCharacters() {
         job?.cancel()

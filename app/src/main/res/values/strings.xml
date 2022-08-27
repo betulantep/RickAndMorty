@@ -6,4 +6,5 @@
     <string name="location">LOCATION</string>
     <string name="gender">GENDER</string>
     <string name="species">SPECIES</string>
+    <string name="search">Search</string>
 </resources>

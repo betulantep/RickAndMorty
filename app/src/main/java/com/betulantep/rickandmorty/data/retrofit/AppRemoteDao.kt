@@ -10,4 +10,5 @@ interface AppRemoteDao {
 
     @GET("character")
     suspend fun getAllCharacters(@Query("page") query:Int) : CharacterResponse
+
 }
