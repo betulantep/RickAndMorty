@@ -51,13 +51,15 @@ class CharactersFragment : Fragment(R.layout.fragment_characters),SearchView.OnQ
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
-        Log.e("asd",query)
-
         return true
     }
 
     override fun onQueryTextChange(newText: String): Boolean {
-        Log.e("asd",newText)
+        if(newText.isBlank()){
+            viewModel.getCharacters()
+        }else{
+            viewModel.searchCharacterName(newText)
+        }
 
         return true
     }

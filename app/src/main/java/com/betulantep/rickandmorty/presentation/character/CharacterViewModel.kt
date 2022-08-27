@@ -38,9 +38,13 @@ class CharacterViewModel @Inject constructor(
         getCharacters()
     }
 
+    fun searchCharacterName(searchName:String){
+        _characterList.value = _characterList.value.filter {
+            it.name.lowercase().contains(searchName.lowercase())
+        }
+    }
 
-
-    private fun getCharacters() {
+    fun getCharacters() {
         job?.cancel()
         job = getCharacterUIModelUseCase.executeGetCharacters(viewModelScope)
             .onEach { networkResult ->
