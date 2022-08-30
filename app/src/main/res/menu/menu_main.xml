@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_character"
+        android:id="@+id/charactersFragment"
         android:icon="@drawable/ic_character"
         android:title="Characters"
         app:showAsAction="always" />

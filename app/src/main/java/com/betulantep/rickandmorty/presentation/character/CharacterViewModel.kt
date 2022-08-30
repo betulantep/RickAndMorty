@@ -19,7 +19,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterViewModel @Inject constructor(
-    var repo: AppRepository,
     var getCharacterUIModelUseCase: GetCharacterUIModelUseCase
 ) : ViewModel() {
 
@@ -36,6 +35,12 @@ class CharacterViewModel @Inject constructor(
 
     init {
         getCharacters()
+    }
+
+    fun filterCharacterSelected(statusChip:String,speciesChip: String,genderChip:String){
+        _characterList.value = _characterList.value.filter {
+            it.status == statusChip && it.species == speciesChip && it.gender == genderChip
+        }
     }
 
     fun searchCharacterName(searchName:String){

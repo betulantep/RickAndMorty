@@ -1,10 +1,29 @@
 <resources>
     <string name="app_name">RickAndMorty</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="origin">ORIGIN</string>
-    <string name="location">LOCATION</string>
-    <string name="gender">GENDER</string>
-    <string name="species">SPECIES</string>
+    <string name="origin_uppercase">ORIGIN</string>
+    <string name="location_uppercase">LOCATION</string>
+    <string name="gender_uppercase">GENDER</string>
+    <string name="species_uppercase">SPECIES</string>
     <string name="search">Search</string>
+    <string name="status">Status</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">Unknown</string>
+    <string name="mythological">Mythological Creature</string>
+    <string name="humanoid">Humanoid</string>
+    <string name="robot">Robot</string>
+    <string name="animal">Animal</string>
+    <string name="cronenberg">Cronenberg</string>
+    <string name="disease">Disease</string>
+    <string name="species">Species</string>
+    <string name="poopybutthole">Poopybutthole</string>
+    <string name="human">Human</string>
+    <string name="alien">Alien</string>
+    <string name="female">Female</string>
+    <string name="genderless">Genderless</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="apply">Apply</string>
+    <string name="filter">Filter</string>
 </resources>

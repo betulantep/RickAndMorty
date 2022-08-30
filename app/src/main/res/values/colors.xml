@@ -11,8 +11,17 @@
     <color name="red">#A60C00</color>
     <color name="green">#4CAF50</color>
     <color name="gray">#919191</color>
+    <color name="lightGray">#F9F9F9</color>
+    <color name="darkGray">#4B4B4B</color>
+
 
     <color name="primary">#303f9f</color>
     <color name="primaryDark">#001970</color>
     <color name="primaryLight">#666ad1</color>
+
+    //Custom chip style
+    <color name="checkedChipBackgroundColor">#206200EA</color>
+    <color name="chipBackgroundColor">@color/lightGray</color>
+    <color name="checkedChipTextColor">@color/primary</color>
+    <color name="chipTextColor">@color/darkGray</color>
 </resources>

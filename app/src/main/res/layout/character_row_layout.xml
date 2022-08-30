@@ -96,7 +96,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{@string/species + ` : `}"
+                            android:text="@{@string/species_uppercase + ` : `}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             tools:text="SPECIES : " />
@@ -120,7 +120,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{@string/gender + ` : `}"
+                            android:text="@{@string/gender_uppercase + ` : `}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             tools:text="GENDER : " />
@@ -143,7 +143,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{@string/origin + ` : `}"
+                            android:text="@{@string/origin_uppercase + ` : `}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             tools:text="ORIGIN : " />
@@ -166,7 +166,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{@string/location + ` : `}"
+                            android:text="@{@string/location_uppercase + ` : `}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             tools:text="LOCATION : " />
