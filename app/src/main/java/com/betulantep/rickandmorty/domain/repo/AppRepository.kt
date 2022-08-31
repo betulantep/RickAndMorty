@@ -10,5 +10,7 @@ interface AppRepository {
 
     suspend fun getCharacters(): Flow<PagingData<Character>>
 
+    suspend fun getFilterCharacters(filterQuery: Map<String,String>): Flow<PagingData<Character>>
+
     suspend fun getCharactersNetworkResult(pageNumber : Int) : CharacterResponse
 }

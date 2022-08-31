@@ -12,6 +12,25 @@
         <action
             android:id="@+id/action_charactersFragment_to_characterFilterBottomSheet"
             app:destination="@id/characterFilterBottomSheet" />
+        <argument
+            android:name="backFromBottomSheet"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="status"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <argument
+            android:name="species"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <argument
+            android:name="gender"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
     </fragment>
     <dialog
         android:id="@+id/characterFilterBottomSheet"

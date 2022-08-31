@@ -8,7 +8,7 @@ import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import com.betulantep.rickandmorty.utils.Constants
 import javax.inject.Inject
 
-class SearchCharacterNamePagingSource @Inject constructor(var remoteDao: AppRemoteDao,var searchName: String) :
+class FilterCharacterPagingSource @Inject constructor(var remoteDao: AppRemoteDao, var filter: Map<String,String>) :
     PagingSource<Int, Character>() {
     override fun getRefreshKey(state: PagingState<Int, Character>): Int? {
         return state.anchorPosition
@@ -17,7 +17,7 @@ class SearchCharacterNamePagingSource @Inject constructor(var remoteDao: AppRemo
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
         return try {
             val nextPage: Int = params.key ?: Constants.FIRST_PAGE_INDEX
-            val response = remoteDao.getAllCharacters(nextPage)
+            val response = remoteDao.getFilterCharacters(query = nextPage, filterQuery = filter)
             var nextPageNumber: Int? = null
 
             val uri = Uri.parse(response.info.next)
