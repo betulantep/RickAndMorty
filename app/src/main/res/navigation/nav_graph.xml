@@ -41,4 +41,9 @@
             android:id="@+id/action_characterFilterBottomSheet_to_charactersFragment"
             app:destination="@id/charactersFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/episodesFragment"
+        android:name="com.betulantep.rickandmorty.presentation.episode.EpisodesFragment"
+        android:label="fragment_episodes"
+        tools:layout="@layout/fragment_episodes" />
 </navigation>

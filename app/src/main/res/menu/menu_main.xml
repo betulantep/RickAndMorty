@@ -4,7 +4,13 @@
 
     <item
         android:id="@+id/charactersFragment"
-        android:icon="@drawable/ic_character"
-        android:title="Characters"
+        android:icon="@drawable/icon_characters"
+        android:title="@string/characters"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/episodesFragment"
+        android:icon="@drawable/ic_episode"
+        android:title="@string/episodes"
+        app:showAsAction="always"
+        />
 </menu>
