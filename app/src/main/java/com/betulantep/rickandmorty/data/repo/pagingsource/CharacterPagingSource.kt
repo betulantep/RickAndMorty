@@ -20,9 +20,15 @@ class CharacterPagingSource @Inject constructor(var remoteDao: AppRemoteDao) :
             val response = remoteDao.getAllCharacters(nextPage)
             var nextPageNumber: Int? = null
 
-            val uri = Uri.parse(response.info.next)
-            val nextPageQuery = uri.getQueryParameter("page")
-            nextPageNumber = nextPageQuery!!.toInt()
+            val totalPageCount = response.info.pages
+            nextPageNumber = if(nextPage == totalPageCount){
+                // bu if olmazsa parse edemediği için ilerlemiyor ve son sayfa gözükmüyor
+                null
+            }else{
+                val uri = Uri.parse(response.info.next)
+                val nextPageQuery = uri.getQueryParameter("page")
+                nextPageQuery?.toInt()
+            }
 
             LoadResult.Page(
                 data = response.characters,
