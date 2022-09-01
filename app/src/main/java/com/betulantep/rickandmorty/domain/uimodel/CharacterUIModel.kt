@@ -1,7 +1,7 @@
 package com.betulantep.rickandmorty.domain.uimodel
 
-import com.betulantep.rickandmorty.data.entities.Character.Location
-import com.betulantep.rickandmorty.data.entities.Character.Origin
+import com.betulantep.rickandmorty.data.entities.character.Location
+import com.betulantep.rickandmorty.data.entities.character.Origin
 
 data class CharacterUIModel(
     val id: Int,

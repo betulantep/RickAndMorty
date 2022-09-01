@@ -3,14 +3,13 @@ package com.betulantep.rickandmorty.domain.usecase
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.betulantep.rickandmorty.data.entities.Character.toCharacterUIModel
+import com.betulantep.rickandmorty.data.entities.character.toCharacterUIModel
 import com.betulantep.rickandmorty.domain.repo.AppRepository
 import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 import com.betulantep.rickandmorty.utils.Constants.FIRST_PAGE_INDEX
 import com.betulantep.rickandmorty.utils.NetworkResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException

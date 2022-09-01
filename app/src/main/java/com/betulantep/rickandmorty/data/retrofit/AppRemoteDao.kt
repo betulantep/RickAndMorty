@@ -1,8 +1,6 @@
 package com.betulantep.rickandmorty.data.retrofit
 
-import com.betulantep.rickandmorty.data.entities.Character.CharacterResponse
-import io.reactivex.Single
-import retrofit2.Response
+import com.betulantep.rickandmorty.data.entities.character.CharacterResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.QueryMap

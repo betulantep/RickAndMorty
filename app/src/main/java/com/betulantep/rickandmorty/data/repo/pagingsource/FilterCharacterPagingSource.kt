@@ -3,7 +3,7 @@ package com.betulantep.rickandmorty.data.repo.pagingsource
 import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.betulantep.rickandmorty.data.entities.Character.Character
+import com.betulantep.rickandmorty.data.entities.character.Character
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import com.betulantep.rickandmorty.utils.Constants
 import javax.inject.Inject

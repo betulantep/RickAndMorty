@@ -1,9 +1,8 @@
 package com.betulantep.rickandmorty.domain.repo
 
 import androidx.paging.PagingData
-import com.betulantep.rickandmorty.data.entities.Character.Character
-import com.betulantep.rickandmorty.data.entities.Character.CharacterResponse
-import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
+import com.betulantep.rickandmorty.data.entities.character.Character
+import com.betulantep.rickandmorty.data.entities.character.CharacterResponse
 import kotlinx.coroutines.flow.Flow
 
 interface AppRepository {

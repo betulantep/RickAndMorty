@@ -3,8 +3,8 @@ package com.betulantep.rickandmorty.data.repo
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.betulantep.rickandmorty.data.entities.Character.Character
-import com.betulantep.rickandmorty.data.entities.Character.CharacterResponse
+import com.betulantep.rickandmorty.data.entities.character.Character
+import com.betulantep.rickandmorty.data.entities.character.CharacterResponse
 import com.betulantep.rickandmorty.data.repo.pagingsource.CharacterPagingSource
 import com.betulantep.rickandmorty.data.repo.pagingsource.FilterCharacterPagingSource
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao

@@ -1,4 +1,4 @@
-package com.betulantep.rickandmorty.data.entities.Character
+package com.betulantep.rickandmorty.data.entities.character
 
 
 import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
