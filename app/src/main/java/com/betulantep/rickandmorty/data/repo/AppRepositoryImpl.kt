@@ -10,6 +10,7 @@ import com.betulantep.rickandmorty.data.entities.episode.EpisodeResponse
 import com.betulantep.rickandmorty.data.repo.pagingsource.CharacterPagingSource
 import com.betulantep.rickandmorty.data.repo.pagingsource.EpisodePagingSource
 import com.betulantep.rickandmorty.data.repo.pagingsource.FilterCharacterPagingSource
+import com.betulantep.rickandmorty.data.repo.pagingsource.FilterEpisodePagingSource
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import com.betulantep.rickandmorty.domain.repo.AppRepository
 import kotlinx.coroutines.flow.Flow
@@ -33,6 +34,12 @@ class AppRepositoryImpl @Inject constructor(var remoteDao: AppRemoteDao) : AppRe
         return Pager(
             config = PagingConfig(20),
             pagingSourceFactory = { FilterCharacterPagingSource(remoteDao,filterQuery)}).flow
+    }
+
+    override suspend fun getFilterEpisodes(filterQuery: String): Flow<PagingData<Episode>> {
+        return Pager(
+            config = PagingConfig(20),
+            pagingSourceFactory = { FilterEpisodePagingSource(remoteDao,filterQuery)}).flow
     }
 
     override suspend fun getCharactersNetworkResult(pageNumber: Int): CharacterResponse {

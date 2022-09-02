@@ -7,4 +7,5 @@ object Constants {
     const val STATUS_DEFAULT = "Alive"
     const val SPECIES_DEFAULT = "Human"
     const val GENDER_DEFAULT = "Male"
+
 }

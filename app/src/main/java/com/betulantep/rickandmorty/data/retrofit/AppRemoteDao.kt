@@ -15,9 +15,9 @@ interface AppRemoteDao {
     suspend fun getAllEpisodes(@Query("page") query: Int): EpisodeResponse
 
     @GET("character")
-    suspend fun getFilterCharacters(
-        @Query("page") query: Int,
-        @QueryMap filterQuery: Map<String, String>
-    ): CharacterResponse
+    suspend fun getFilterCharacters(@Query("page") query: Int, @QueryMap filterQuery: Map<String, String>): CharacterResponse
+
+    @GET("episode")
+    suspend fun getFilterEpisodes(@Query("page") query: Int, filterQuery: String): EpisodeResponse
 
 }

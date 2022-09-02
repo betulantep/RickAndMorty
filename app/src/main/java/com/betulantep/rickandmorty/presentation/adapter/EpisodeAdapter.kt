@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.betulantep.rickandmorty.databinding.EpisodeRowLayoutBinding
 import com.betulantep.rickandmorty.domain.uimodel.EpisodeUIModel
+import com.betulantep.rickandmorty.presentation.episode.EpisodeViewModel
 
-class EpisodeAdapter() :
+class EpisodeAdapter(var viewModel: EpisodeViewModel) :
     PagingDataAdapter<EpisodeUIModel, EpisodeAdapter.EpisodeViewHolder>(DiffUtilCallBack()) {
     class EpisodeViewHolder(var binding: EpisodeRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
