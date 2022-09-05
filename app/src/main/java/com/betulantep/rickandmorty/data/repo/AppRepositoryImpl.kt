@@ -36,10 +36,10 @@ class AppRepositoryImpl @Inject constructor(var remoteDao: AppRemoteDao) : AppRe
             pagingSourceFactory = { FilterCharacterPagingSource(remoteDao,filterQuery)}).flow
     }
 
-    override suspend fun getFilterEpisodes(filterQuery: String): Flow<PagingData<Episode>> {
+    override suspend fun getFilterEpisodes(filter: String): Flow<PagingData<Episode>> {
         return Pager(
             config = PagingConfig(20),
-            pagingSourceFactory = { FilterEpisodePagingSource(remoteDao,filterQuery)}).flow
+            pagingSourceFactory = { FilterEpisodePagingSource(remoteDao, filter)}).flow
     }
 
     override suspend fun getCharactersNetworkResult(pageNumber: Int): CharacterResponse {

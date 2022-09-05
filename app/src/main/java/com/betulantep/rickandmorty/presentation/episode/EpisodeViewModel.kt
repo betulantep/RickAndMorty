@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.filter
 import com.betulantep.rickandmorty.domain.uimodel.EpisodeUIModel
 import com.betulantep.rickandmorty.domain.usecase.GetEpisodeUIModelUseCase
 import com.betulantep.rickandmorty.domain.usecase.GetFilterEpisodeUIModelUseCase
@@ -82,6 +83,7 @@ class EpisodeViewModel @Inject constructor(
                     is NetworkResult.Error -> {
                         _episodeError.value = networkResult.message ?: "Error! No Data"
                         _episodeLoading.value = false
+                        Log.e("asd","error asd $_episodeError")
                     }
                 }
             }.launchIn(viewModelScope)
@@ -92,13 +94,13 @@ class EpisodeViewModel @Inject constructor(
         episodeHashMap.clear()
         seasonListHashMap.clear()
         episodeListHashMap.clear()
+
         //Seasons
         seasonHashMap["S01"] = "Season 1"
         seasonHashMap["S02"] = "Season 2"
         seasonHashMap["S03"] = "Season 3"
         seasonHashMap["S04"] = "Season 4"
         seasonHashMap["S05"] = "Season 5"
-
 
         for (seasonName in seasonHashMap){
             seasonListHashMap.add(seasonName.value)

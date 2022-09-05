@@ -15,7 +15,7 @@ interface AppRepository {
 
     suspend fun getFilterCharacters(filterQuery: Map<String,String>): Flow<PagingData<Character>>
 
-    suspend fun getFilterEpisodes(filterQuery: String): Flow<PagingData<Episode>>
+    suspend fun getFilterEpisodes(filter: String): Flow<PagingData<Episode>>
 
     suspend fun getCharactersNetworkResult(pageNumber : Int) : CharacterResponse
     suspend fun getEpisodesNetworkResult(pageNumber : Int) : EpisodeResponse

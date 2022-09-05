@@ -18,7 +18,7 @@ class FilterEpisodePagingSource @Inject constructor(var remoteDao: AppRemoteDao,
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Episode> {
         return try {
             val nextPage: Int = params.key ?: Constants.FIRST_PAGE_INDEX
-            val response = remoteDao.getFilterEpisodes(query = nextPage, filterQuery = filter)
+            val response = remoteDao.getFilterEpisodes(query = nextPage, filter = filter )
             var nextPageNumber: Int? = null
 
             val totalPageCount = response.info.pages

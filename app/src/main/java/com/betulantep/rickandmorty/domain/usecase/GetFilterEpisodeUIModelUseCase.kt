@@ -27,7 +27,7 @@ class GetFilterEpisodeUIModelUseCase @Inject constructor(var repo: AppRepository
                 emit(NetworkResult.Loading())
                 val response = repo.getEpisodesNetworkResult(FIRST_PAGE_INDEX)
                 if (response.episodes.isNullOrEmpty()) {
-                    emit(NetworkResult.Error(message = "No Rick And Morty Character"))
+                    emit(NetworkResult.Error(message = "No Rick And Morty Episode"))
                 } else {
                     repo.getFilterEpisodes(filter).cachedIn(coroutineScope).collect {
                         emit(NetworkResult.Success(it.map { episode ->

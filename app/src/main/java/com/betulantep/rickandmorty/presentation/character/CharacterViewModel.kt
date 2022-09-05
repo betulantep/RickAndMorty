@@ -49,7 +49,6 @@ class CharacterViewModel @Inject constructor(
 
     init {
         getCharacters()
-        Log.e("asd", "init")
     }
 
     fun changeValueCharacterStatus(status: String) { _characterStatus.value = status }
