@@ -31,9 +31,9 @@ class EpisodeAdapter(var viewModel: EpisodeViewModel) :
         val hb = holder.binding
         val mContext = hb.root.context
 
-        hb.tvRowEpisode.text = currentEpisode.episode
+        hb.tvRowSeasonEpisode.text = currentEpisode.episode
+        hb.tvRowEpisode.text = "EPISODE ${currentEpisode.id}"
         hb.tvRowName.text = currentEpisode.name
-        hb.tvRowAirDate.text = currentEpisode.airDate
     }
 
     class DiffUtilCallBack : DiffUtil.ItemCallback<EpisodeUIModel>() {
