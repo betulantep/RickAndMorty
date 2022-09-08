@@ -2,6 +2,7 @@ package com.betulantep.rickandmorty.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.betulantep.rickandmorty.R
@@ -18,6 +19,18 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
+
+        val showBottomNavigationIds = listOf(
+            R.id.charactersFragment,
+            R.id.episodesFragment
+        )
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (showBottomNavigationIds.contains(destination.id)) {
+                binding.bottomNavigationView.visibility = View.VISIBLE
+            } else {
+                binding.bottomNavigationView.visibility = View.GONE
+            }
+        }
 
         NavigationUI.setupWithNavController(binding.bottomNavigationView,navController)
     }

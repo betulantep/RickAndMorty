@@ -1,5 +1,7 @@
 package com.betulantep.rickandmorty.domain.uimodel
 
+import java.io.Serializable
+
 data class EpisodeUIModel(
     val id: Int,
     val name: String,
@@ -8,4 +10,4 @@ data class EpisodeUIModel(
     val created: String,
     val episode: String,
     val url: String
-)
+):Serializable

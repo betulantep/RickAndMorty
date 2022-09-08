@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="listener"
+            type="com.betulantep.rickandmorty.presentation.episode.EpisodeItemClickListener" />
+        <variable
             name="episode"
             type="com.betulantep.rickandmorty.domain.uimodel.EpisodeUIModel" />
     </data>
@@ -17,6 +20,7 @@
             android:id="@+id/cardView_row_episode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{()->listener.onItemClickListener(episode)}"
             android:layout_margin="12dp"
             app:cardBackgroundColor="#9193CC"
             app:cardCornerRadius="4dp"

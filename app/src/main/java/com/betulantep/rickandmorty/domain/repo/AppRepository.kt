@@ -5,7 +5,9 @@ import com.betulantep.rickandmorty.data.entities.character.Character
 import com.betulantep.rickandmorty.data.entities.character.CharacterResponse
 import com.betulantep.rickandmorty.data.entities.episode.Episode
 import com.betulantep.rickandmorty.data.entities.episode.EpisodeResponse
+import com.betulantep.rickandmorty.utils.NetworkResult
 import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 interface AppRepository {
 
@@ -19,4 +21,6 @@ interface AppRepository {
 
     suspend fun getCharactersNetworkResult(pageNumber : Int) : CharacterResponse
     suspend fun getEpisodesNetworkResult(pageNumber : Int) : EpisodeResponse
+
+    suspend fun getCharacterByIdList(ids:String): List<Character>
 }

@@ -45,5 +45,25 @@
         android:id="@+id/episodesFragment"
         android:name="com.betulantep.rickandmorty.presentation.episode.EpisodesFragment"
         android:label="fragment_episodes"
-        tools:layout="@layout/fragment_episodes" />
+        tools:layout="@layout/fragment_episodes" >
+        <action
+            android:id="@+id/action_episodesFragment_to_episodeDetailFragment"
+            app:destination="@id/episodeDetailFragment"
+            app:popUpTo="@id/episodeDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.betulantep.rickandmorty.presentation.episode_detail.EpisodeDetailFragment"
+        android:label="fragment_episode_detail"
+        tools:layout="@layout/fragment_episode_detail" >
+        <argument
+            android:name="episode"
+            app:argType="com.betulantep.rickandmorty.domain.uimodel.EpisodeUIModel" />
+        <action
+            android:id="@+id/action_episodeDetailFragment_to_episodesFragment"
+            app:destination="@id/episodesFragment"
+            app:popUpTo="@id/episodeDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
