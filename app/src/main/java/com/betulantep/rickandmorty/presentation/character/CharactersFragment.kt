@@ -1,5 +1,6 @@
 package com.betulantep.rickandmorty.presentation.character
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -17,6 +18,7 @@ import androidx.navigation.fragment.navArgs
 import com.betulantep.rickandmorty.R
 import com.betulantep.rickandmorty.databinding.FragmentCharactersBinding
 import com.betulantep.rickandmorty.presentation.adapter.CharacterAdapter
+import com.betulantep.rickandmorty.utils.actionFragment
 import com.betulantep.rickandmorty.utils.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -27,12 +29,19 @@ import kotlinx.coroutines.launch
 class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.OnQueryTextListener {
     private val binding by viewBinding(FragmentCharactersBinding::bind)
     private val viewModel: CharacterViewModel by viewModels()
-    private val navArgs : CharactersFragmentArgs by navArgs()
+    private val navArgs: CharactersFragmentArgs by navArgs()
     private val mAdapter by lazy { CharacterAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        //filtreledmeden sonra refresh yapıldığında episode fragmenta gidip gelindiğinde
+        // tekrar filtrelemesin diye onCreate de yapıldı
+        //ilk açılışta ve bottom sheet gidip gelince onCreate çalışıyor
+        //nav arası geçişlerde gitme: onPause,onStop,onDestroyView
+        //gelme: onViewCreated, onStart, onResume
+        viewModel.backFromBottomSheet.value = navArgs.backFromBottomSheet
+        //swipe refresh olunca zaten false oluyor
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +49,6 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
 
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbarCharacter)
         binding.characterAdapter = mAdapter
-
         //öncelik sırası yok ama belki yüklenmede çok az gecikme olabilir
         setupNavArgs()
         swipeRefresh()
@@ -49,7 +57,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
 
     }
 
-    private fun characterListCollect(){
+    private fun characterListCollect() {
         lifecycleScope.launch {
             viewModel.characterList.collectLatest { characterList ->
                 mAdapter.submitData(characterList)
@@ -57,7 +65,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
         }
     }
 
-    private fun observe(){
+    private fun observe() {
         viewModel.backFromBottomSheet.observe(viewLifecycleOwner) { back ->
             if (!back) {
                 viewModel.getCharacters()
@@ -67,18 +75,17 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
         }
     }
 
-    private fun swipeRefresh(){
+    private fun swipeRefresh() {
         binding.swipeCharacterFragment.setOnRefreshListener {
             viewModel.backFromBottomSheet.value = false
             binding.swipeCharacterFragment.isRefreshing = false
         }
     }
 
-    private fun setupNavArgs(){
-        viewModel.backFromBottomSheet.value = navArgs.backFromBottomSheet
-        navArgs.status?.let { viewModel.changeValueCharacterStatus(it)}
-        navArgs.species?.let { viewModel.changeValueCharacterSpecies(it)}
-        navArgs.gender?.let { viewModel.changeValueCharacterGender(it)}
+    private fun setupNavArgs() {
+        navArgs.status?.let { viewModel.changeValueCharacterStatus(it) }
+        navArgs.species?.let { viewModel.changeValueCharacterSpecies(it) }
+        navArgs.gender?.let { viewModel.changeValueCharacterGender(it) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -90,11 +97,16 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.action_filter -> {
-                findNavController().navigate(R.id.action_charactersFragment_to_characterFilterBottomSheet)
+                Navigation.actionFragment(
+                    requireView(),
+                    R.id.action_charactersFragment_to_characterFilterBottomSheet
+                )
             }
-            R.id.action_refresh ->{ viewModel.backFromBottomSheet.value = false }
+            R.id.action_refresh -> {
+                viewModel.backFromBottomSheet.value = false
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -107,7 +119,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
         //bu sorgu olmazsa karakter sildikçe veriler güncellenmiyor
         if (newText.isBlank()) { //tüm karakterler silindiğinde çalışacak
             observe() //filtrelemeden sonra search yaparsa diye observe() , filter listesinde arayacak.
-                    //yoksa viewModel.getCharacters() ile ilk liste getirilebilirdi.
+            //yoksa viewModel.getCharacters() ile ilk liste getirilebilirdi.
         } else {
             viewModel.searchCharacterName(newText)
         }
