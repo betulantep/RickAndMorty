@@ -14,7 +14,10 @@ import com.betulantep.rickandmorty.data.repo.pagingsource.FilterEpisodePagingSou
 import com.betulantep.rickandmorty.data.retrofit.AppRemoteDao
 import com.betulantep.rickandmorty.domain.repo.AppRepository
 import com.betulantep.rickandmorty.utils.NetworkResult
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
+import retrofit2.HttpException
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -55,4 +58,5 @@ class AppRepositoryImpl @Inject constructor(var remoteDao: AppRemoteDao) : AppRe
     override suspend fun getCharacterByIdList(ids: String): List<Character> {
         return remoteDao.getCharacterByIdList(ids)
     }
+
 }

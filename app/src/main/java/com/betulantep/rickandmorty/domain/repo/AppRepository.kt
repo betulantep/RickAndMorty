@@ -23,4 +23,5 @@ interface AppRepository {
     suspend fun getEpisodesNetworkResult(pageNumber : Int) : EpisodeResponse
 
     suspend fun getCharacterByIdList(ids:String): List<Character>
+
 }

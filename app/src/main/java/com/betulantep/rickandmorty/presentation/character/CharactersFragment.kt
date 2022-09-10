@@ -1,19 +1,17 @@
 package com.betulantep.rickandmorty.presentation.character
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.betulantep.rickandmorty.R
 import com.betulantep.rickandmorty.databinding.FragmentCharactersBinding
@@ -21,6 +19,7 @@ import com.betulantep.rickandmorty.presentation.adapter.CharacterAdapter
 import com.betulantep.rickandmorty.utils.actionFragment
 import com.betulantep.rickandmorty.utils.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -53,8 +52,20 @@ class CharactersFragment : Fragment(R.layout.fragment_characters), SearchView.On
         setupNavArgs()
         swipeRefresh()
         observe()
+        eventCollect()
         characterListCollect()
 
+    }
+
+    private fun eventCollect() = lifecycleScope.launch {
+        viewModel.characterLoading.collectLatest {
+            handleProgressBar(it)
+        }
+    }
+
+    private fun handleProgressBar(isLoading : Boolean) {
+        binding.progressBarCharacter.isVisible = isLoading
+        binding.rvCharacter.isVisible = !isLoading
     }
 
     private fun characterListCollect() {

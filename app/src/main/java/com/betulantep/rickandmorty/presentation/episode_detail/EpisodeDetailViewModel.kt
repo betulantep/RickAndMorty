@@ -1,6 +1,5 @@
 package com.betulantep.rickandmorty.presentation.episode_detail
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.betulantep.rickandmorty.data.entities.character.toCharacterUIModel
@@ -9,7 +8,6 @@ import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 import com.betulantep.rickandmorty.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject

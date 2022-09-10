@@ -6,14 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.filter
-import com.betulantep.rickandmorty.domain.repo.AppRepository
 import com.betulantep.rickandmorty.domain.uimodel.CharacterUIModel
 import com.betulantep.rickandmorty.domain.usecase.GetCharacterUIModelUseCase
 import com.betulantep.rickandmorty.domain.usecase.GetFilterCharacterUIModelUseCase
 import com.betulantep.rickandmorty.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
@@ -77,13 +79,11 @@ class CharacterViewModel @Inject constructor(
                     when (networkResult) {
                         is NetworkResult.Loading -> {
                             _characterLoading.value = true
-                            Log.e("asd", "loading")
                         }
                         is NetworkResult.Success -> {
                             networkResult.data?.let {
                                 _characterList.value = it
                                 _characterLoading.value = false
-                                Log.e("asd", "data")
                             }
                         }
                         is NetworkResult.Error -> {
@@ -111,7 +111,7 @@ class CharacterViewModel @Inject constructor(
                             }
                         }
                         is NetworkResult.Error -> {
-                            _characterError.value = networkResult.message ?: "Error! No Data"
+                            _characterError.value = networkResult.message ?: "Not Found Character"
                             _characterLoading.value = false
                         }
                     }
