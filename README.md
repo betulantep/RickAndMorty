@@ -14,7 +14,7 @@ Project Features
 <h3 align="left">
  - MVVM (Model, View, ViewModel) Architecture <br>
  - Dagger-Hilt <br>
- - Rick And Morty API [Rick and Morty Api Link](https://rickandmortyapi.com/documentation/)<br>
+ - Rick And Morty API (https://rickandmortyapi.com)<br>
  - Retrofit <br>
  - Paging 3 <br>
  - Coroutine <br>
