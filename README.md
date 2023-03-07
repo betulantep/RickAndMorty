@@ -11,23 +11,27 @@ You can look to details of season and episode you want.
 Project Features
 </h2>
 
-<h3 align="left">
- - MVVM (Model, View, ViewModel) Architecture <br>
- - Dagger-Hilt <br>
- - Rick And Morty API (https://rickandmortyapi.com)<br>
- - Retrofit <br>
- - Paging 3 <br>
- - Coroutine <br>
- - Flow <br>
- - LiveData <br>
- - DataBinding <br>
- - Navigation Component <br>
- - PagingDataAdapter <br>
- - RecyclerView <br>
- - Coil Image Loader <br>
- - Material Design Component <br>
-   <br>
- </h3><br>
+   <h3 align="left">
+    - MVVM (Model, View, ViewModel) Architecture <br>
+    - Dagger-Hilt <br>
+    - Rick And Morty API (https://rickandmortyapi.com)<br>
+    - Retrofit <br>
+    - Paging 3 <br>
+    - Coroutine <br>
+    - Flow <br>
+    - LiveData <br>
+    - DataBinding <br>
+    - Navigation Component <br>
+    - PagingDataAdapter <br>
+    - RecyclerView <br>
+    - Coil Image Loader <br>
+    - Material Design Component
+  </h3><br>
+    
+ <div><video controls src="https://user-images.githubusercontent.com/96572313/223406876-a1fe424c-2df1-42f1-a73d-673aeb0c02f5.mp4"  muted="muted"></video></div>
+ 
+<br><br>
+
  
  <p align="left">
 <img align="left" src="https://github.com/betulantep/RickAndMorty/blob/master/ScreenShots/ss1.png" width="200" />
